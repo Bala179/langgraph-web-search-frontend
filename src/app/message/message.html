@@ -1,0 +1,9 @@
+<div class="d-flex flex-row" [ngClass]="{ 'justify-content-end' : sentByUser() }">
+    <div class="card mb-3 end-0" [ngClass]="{ 'text-bg-primary' : sentByUser(), 'text-bg-secondary' : !sentByUser()}" 
+        style="max-width: 30rem;">
+    <div class="card-body ms-auto">
+        <h5 class="card-title">{{ sentByUser() ? "You" : "AI Agent"}}</h5>
+        <p class="card-text">{{ content() }}</p>
+    </div>
+    </div>
+</div>

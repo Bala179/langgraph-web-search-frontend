@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Message } from './message/message';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgbModule],
+  imports: [NgbModule, Message],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
