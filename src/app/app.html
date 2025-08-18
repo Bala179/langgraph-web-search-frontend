@@ -1,12 +1,9 @@
 <div class="container-sm">
   <h1>Web search assisted OpenAI chatbot</h1>
   <div class="bg-info-subtle rounded-2 p-4">
-    <app-message [content]="'Some quick example text to build on the card title and make up the bulk of the card’s content.'"
-      [sentByUser]="false">
-    </app-message>
-    <app-message [content]="'Some quick example text to build on the card title and make up the bulk of the card’s content.'"
-      [sentByUser]="true">
-    </app-message>
+    @for(message of messageList; track $index) {
+      <app-message [content]="message.content" [sentByUser]="message.sentByUser"></app-message>
+    }
   </div>
   <div class="p-4">
     <form class="row">
