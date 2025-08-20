@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Message } from './message/message';
 import { MessageInfo } from './message-info';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from './message-service';
 
 @Component({

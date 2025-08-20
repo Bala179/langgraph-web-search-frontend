@@ -1,9 +1,10 @@
 import { NgClass } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { MarkdownComponent } from "ngx-markdown";
 
 @Component({
   selector: 'app-message',
-  imports: [NgClass],
+  imports: [NgClass, MarkdownComponent],
   templateUrl: './message.html',
   styleUrl: './message.css'
 })
