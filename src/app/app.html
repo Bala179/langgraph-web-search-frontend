@@ -2,7 +2,10 @@
   <h1>Web search assisted OpenAI chatbot</h1>
   <div class="bg-info-subtle rounded-2 p-4">
     @for(message of messageList; track $index) {
-      <app-message [content]="message.content" [sentByUser]="message.sentByUser"></app-message>
+      <!-- Display only the last 5 messages -->
+      @if(messageList.length - $index <= 5) {
+        <app-message [content]="message.content" [sentByUser]="message.sentByUser"></app-message>
+      }
     }
   </div>
   <div class="p-4">
