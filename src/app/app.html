@@ -1,5 +1,12 @@
 <div class="container-sm">
   <h1>Web search assisted OpenAI chatbot</h1>
+  @if (errorOccurred) {
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <div>
+        Error connecting to the server, please try again later.
+      </div>
+    </div>
+  }
   <div class="bg-info-subtle rounded-2 p-4">
     @for(message of messageList; track $index) {
       <!-- Display only the last 5 messages -->

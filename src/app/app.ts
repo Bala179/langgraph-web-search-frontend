@@ -13,6 +13,7 @@ import { MessageService } from './message-service';
 })
 export class App {
   messageList: MessageInfo[] = []
+  errorOccurred: boolean = false
 
   newMessageForm = new FormGroup({
     newMessage: new FormControl(''),
@@ -42,16 +43,22 @@ export class App {
 
       this.messageList.push(newMsgObj)
 
-      this.messageService.getWebSearchAgentResponse(userMessage)
-        .subscribe(aiMessage => {
+      this.messageService.getWebSearchAgentResponse(userMessage).subscribe({ 
+        next: aiMessage => {
           this.messageList.pop();
           
           newMsgObj.content = aiMessage.content;
           newMsgObj.loaded = true;
           
           this.messageList.push(newMsgObj);
+          this.errorOccurred = false;
+        },
+        error: err => {
+          this.messageList.pop();
+          console.error(err);
+          this.errorOccurred = true;
         }
-      )
+      })
 
       this.newMessageForm.setValue({ newMessage: '' })
     }
