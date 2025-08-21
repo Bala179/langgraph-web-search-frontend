@@ -7,14 +7,17 @@
       </div>
     </div>
   }
-  <div class="bg-info-subtle rounded-2 p-4">
-    @for(message of messageList; track $index) {
-      <!-- Display only the last 5 messages -->
-      @if(messageList.length - $index <= 5) {
-        <app-message [content]="message.content" [sentByUser]="message.sentByUser" [loaded]="message.loaded"></app-message>
+  <!-- Display chat pane only if there is at least 1 message -->
+  @if (messageList.length > 0) {
+    <div class="bg-info-subtle rounded-2 p-4">
+      @for(message of messageList; track $index) {
+        <!-- Display only the last 5 messages -->
+        @if(messageList.length - $index <= 5) {
+          <app-message [content]="message.content" [sentByUser]="message.sentByUser" [loaded]="message.loaded"></app-message>
+        }
       }
-    }
-  </div>
+    </div>
+  }
   <div class="p-4">
     <form class="row" [formGroup]="newMessageForm" (submit)="sendMessage()">
     <div class="col-sm-10">
