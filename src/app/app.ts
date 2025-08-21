@@ -28,7 +28,8 @@ export class App {
 
   sendMessage() {
     let userMessage = this.newMessageForm.value.newMessage;
-    if (userMessage && userMessage !== '') {
+    // Send the message only if it is well-defined and not only whitespace
+    if (userMessage && !userMessage.match(/^\s*$/)) {
       this.messageList.push({
         content: userMessage,
         sentByUser: true,
