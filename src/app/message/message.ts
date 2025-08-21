@@ -11,4 +11,5 @@ import { MarkdownComponent } from "ngx-markdown";
 export class Message {
   content = input("");
   sentByUser = input(true);
+  loaded = input(true);
 }

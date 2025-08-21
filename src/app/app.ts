@@ -30,15 +30,26 @@ export class App {
     if (userMessage && userMessage !== '') {
       this.messageList.push({
         content: userMessage,
-        sentByUser: true
+        sentByUser: true,
+        loaded: true
       })
+
+      let newMsgObj: MessageInfo = {
+        content: '',
+        sentByUser: false,
+        loaded: false
+      }
+
+      this.messageList.push(newMsgObj)
 
       this.messageService.getWebSearchAgentResponse(userMessage)
         .subscribe(aiMessage => {
-          this.messageList.push({
-            content: aiMessage.content,
-            sentByUser: false
-          })
+          this.messageList.pop();
+          
+          newMsgObj.content = aiMessage.content;
+          newMsgObj.loaded = true;
+          
+          this.messageList.push(newMsgObj);
         }
       )
 

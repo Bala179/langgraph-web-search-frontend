@@ -1,4 +1,5 @@
 export interface MessageInfo {
     content: string,
-    sentByUser: boolean
+    sentByUser: boolean,
+    loaded: boolean
 }

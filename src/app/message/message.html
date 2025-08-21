@@ -3,7 +3,13 @@
         style="max-width: 30rem;">
         <div class="card-body ms-auto">
             <h5 class="card-title">{{ sentByUser() ? "You" : "AI Agent"}}</h5>
-            <p class="card-text" markdown>{{ content() }}</p>
+            @if (loaded()) {
+                <p class="card-text" markdown>{{ content() }}</p>
+            } @else {
+                <p class="placeholder-wave">
+                    <span class="placeholder col-12"></span>
+                </p>
+            }
         </div>
     </div>
 </div>

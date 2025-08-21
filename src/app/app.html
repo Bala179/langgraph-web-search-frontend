@@ -4,7 +4,7 @@
     @for(message of messageList; track $index) {
       <!-- Display only the last 5 messages -->
       @if(messageList.length - $index <= 5) {
-        <app-message [content]="message.content" [sentByUser]="message.sentByUser"></app-message>
+        <app-message [content]="message.content" [sentByUser]="message.sentByUser" [loaded]="message.loaded"></app-message>
       }
     }
   </div>
